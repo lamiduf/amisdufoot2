@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<display-name>AmisduFoot2</display-name>
+
+	<!-- The default servlet for all web applications, that serves static -->
+	<!-- resources. It processes all requests that are not mapped to other -->
+	<!-- servlets with servlet mappings. -->
+	<servlet>
+		<servlet-name>default</servlet-name>
+		<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>0</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- The mapping for the default servlet -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- ==================== Default Welcome File List ===================== -->
+	<!-- When a request URI refers to a directory, the default servlet looks -->
+	<!-- for a "welcome file" within that directory and, if present, -->
+	<!-- to the corresponding resource URI for display. If no welcome file -->
+	<!-- is present, the default servlet either serves a directory listing, -->
+	<!-- or returns a 404 status, depending on how it is configured. -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
