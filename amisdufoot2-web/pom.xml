@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>gdes.amisdufoot2</groupId>
+		<groupId>gdes.amisdufoot</groupId>
 		<artifactId>amisdufoot2</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -11,5 +11,15 @@
 	<packaging>war</packaging>
 	<name>amisdufoot2-web</name>
 	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<start-class>gdes.amisdufoot.ApplicationConfig</start-class>
+	</properties>
 
 </project>

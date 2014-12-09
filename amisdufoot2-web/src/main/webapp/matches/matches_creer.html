@@ -1,0 +1,232 @@
+
+<div class="container">
+
+	<img src="resources/img/logo_amis_150.jpg" class="img-rounded"
+		alt="Responsive image">
+
+	<h2>{{titre}}</h2>
+
+	<form class="form-horizontal" role="form">
+
+		<!-- match -->
+
+		<fieldset style="clear: right;">
+			<legend>
+				<b>Match</b>
+			</legend>
+
+			<div class="row">
+
+				<div class="col-md-6">
+
+					<!-- saison -->
+					<div class="form-group">
+						<label for="saisonFormSelect" class="col-md-4 control-label">Saison</label>
+						<div class="col-md-8">
+							<select class="form-control" id="saisonFormSelect">
+								<option selected="selected">2014-2015</option>
+								<option>2013-2014</option>
+								<option>2012-2013</option>
+							</select>
+						</div>
+					</div>
+
+					<!-- lieu du match -->
+					<div class="form-group has-error">
+						<label for="lieuFormInput" class="col-md-4 control-label">Lieu</label>
+						<div class="col-md-8">
+							<input type="text" class="form-control" id="lieuFormInput"
+								placeholder="Lieu du match">
+						</div>
+					</div>
+
+					<!-- terrain -->
+					<div class="form-group">
+						<label for="terrainFormSelect" class="col-md-4 control-label">Terrain</label>
+						<div class="col-md-8">
+							<select class="form-control" id="terrainFormSelect">
+								<option ng-repeat="typeTerrain in typesTerrain">{{typeTerrain}}</option>
+							</select>
+						</div>
+					</div>
+
+
+
+				</div>
+
+				<div class="col-md-6">
+
+					<!-- competition -->
+					<div class="form-group">
+						<label for="competitionFormSelect" class="col-md-4 control-label">Compétition</label>
+						<div class="col-md-8">
+							<select class="form-control" id="competitionFormSelect">
+								<option selected="selected">Foot Loisir - Championnat
+									Phase1 - Groupe B</option>
+								<option>Foot Loisir - Championnat Phase2 - Groupe B</option>
+								<option>Foot Loisir - Coupe Questroy</option>
+								<option>Foot Loisir - Amicaux</option>
+							</select>
+						</div>
+					</div>
+
+					<!-- date -->
+					<div class="form-group">
+						<label for="dateFormInput" class="col-md-4 control-label">Date</label>
+						<div class="col-md-8">
+							<input type="date" class="form-control" id="dateFormInput"
+								placeholder="Date du match">
+						</div>
+					</div>
+
+					<!-- valide O/N -->
+					<div class="form-group">
+						<label for="inlineRadioOptions" class="col-md-4 control-label">Match
+							validé</label>
+						<div class="col-md-8">
+							<label class="radio-inline"><input type="radio"
+								name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								oui</label> <label class="radio-inline"><input type="radio"
+								name="inlineRadioOptions" id="inlineRadio2" value="option2"
+								checked="checked"> non</label>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</fieldset>
+
+		<br> <br>
+
+		<!-- Résultat -->
+
+		<fieldset style="clear: right;" disabled>
+			<legend>
+				<b>Résultat</b>
+			</legend>
+
+			<div class="row">
+
+				<!-- equipe1 -->
+				<div class="col-md-3 col-md-offset-2">
+					<select class="form-control" id="equipe1FormSelect">
+						<option disabled selected>Equipe 1</option>
+						<option>Amis du Foot</option>
+						<option>Keep Cool</option>
+						<option>Mons Metropolitains</option>
+						<option>Marcq United B</option>
+						<option>Cocker C</option>
+					</select>
+				</div>
+
+				<!-- score equipe1 -->
+				<div class="col-md-1">
+					<input type="text" class="form-control" id="scoreEquipe1FormInput"
+						placeholder="Buts">
+				</div>
+
+				<!-- score equipe2 -->
+				<div class="col-md-1">
+					<input type="text" class="form-control" id="scoreEquipe2FormInput"
+						placeholder="Buts">
+				</div>
+
+				<!-- equipe2 -->
+				<div class="col-md-3">
+					<select class="form-control" id="equipe2FormSelect">
+						<option disabled selected>Equipe 2</option>
+						<option>Amis du Foot</option>
+						<option>Keep Cool</option>
+						<option>Mons Metropolitains</option>
+						<option>Marcq United B</option>
+						<option>Cocker C</option>
+					</select>
+				</div>
+			</div>
+		</fieldset>
+
+		<br> <br>
+
+		<!-- Compo équipe -->
+
+		<fieldset style="clear: right;" disabled>
+			<legend>
+				<b>Composition équipe</b>
+			</legend>
+
+			<div class="row">
+
+				<!-- joueurs -->
+				<div class="col-md-3 col-md-offset-2">
+					<select class="form-control" id="joueursFormSelect">
+						<option>Amilenko</option>
+						<option>Iker</option>
+						<option>Dagui Bakami</option>
+						<option>Kayou</option>
+						<option>Baticloc</option>
+						<option>Moby</option>
+					</select>
+				</div>
+
+				<div class="col-md-2">
+					<button type="button" class="btn btn-success btn-block ">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+					<button type="button" class="btn btn-danger btn-block ">
+						<span class="glyphicon glyphicon-minus"></span>
+					</button>
+				</div>
+
+				<!-- liste -->
+				<div class="col-md-4">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th class="col-md-8">Nom</th>
+								<th class="col-md-4">Buts</th>
+							</tr>
+							<tr>
+								<td>Amilenko</td>
+								<td><input class="form-control" type="number"
+									id="butsJoueur1FormInput"></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Dagui Bakami</td>
+								<td><input class="form-control" type="number"
+									id="butsJoueur2FormInput"></td>
+							</tr>
+							<tr>
+								<td>Kayou</td>
+								<td><input class="form-control" type="number"
+									id="butsJoueur3FormInput"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</fieldset>
+
+		<br> <br>
+
+		<!-- commentaires -->
+
+		<fieldset style="clear: right;" disabled>
+			<legend>
+				<b>Commentaires</b>
+			</legend>
+			<div class="row">
+				<!-- commentaires -->
+				<div class="form-group">
+					<div class="col-md-12">
+						<textarea id="commentairesFormInput" class="form-control"
+							rows="10"></textarea>
+					</div>
+				</div>
+
+			</div>
+		</fieldset>
+	</form>
+</div>
