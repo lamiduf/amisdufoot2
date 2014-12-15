@@ -58,7 +58,6 @@
 
 	<modules>
 		<module>amisdufoot2-web</module>
-		<module>amidufoot2-ws</module>
 	</modules>
 
 

@@ -10,12 +10,12 @@
 	
 
 <!-- Bootstrap -->
-<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
 <!-- Custom styles for this template -->
-<link href="resources/css/sticky-footer-navbar.css" rel="stylesheet">
+<link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
 
-<link href="resources/css/amisdufoot.css" rel="stylesheet">
+<link href="assets/css/amisdufoot.css" rel="stylesheet">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +36,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#/actualites">Actualités</a></li>
+            <li class="active"><a href="#/actualites">Actualit&eacute;s</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Matches <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -57,9 +57,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#/administration/saisons">Saisons</a></li>
+                <li><a href="#/saisons">Saisons</a></li>
                 <li><a href="#/competitions">Competitions</a></li>
-                <li><a href="#/administration/equipes">Equipes</a></li>
+                <li><a href="#/equipes">Equipes</a></li>
               </ul>
             </li>
           </ul>
@@ -70,20 +70,22 @@
 	<div ng-view></div>
 
 
-	<script src="resources/angular/angular.js"></script>
-	<script src="resources/angular/angular-route.js"></script>
-	<script src="resources/angular/ui-bootstrap-tpls-0.11.2.js"></script>
+	<script src="assets/angular/angular.js"></script>
+	<script src="assets/angular/angular-route.js"></script>
+	<script src="assets/angular/ui-bootstrap-tpls-0.11.2.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="resources/jquery/jquery-1.11.1.js"></script>
+	<script src="assets/jquery/jquery-1.11.1.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 
-	<script src="app.js"></script>
-	<script src="actualites/actualites.js"></script>
-	<script src="matches/matches.js"></script>
-	<script src="competitions/competitions.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/components/competitions/competitions-controller.js"></script>
+	<script src="app/components/actualites/actualites-controller.js"></script>
+	<script src="app/components/matches/matches-controller.js"></script>
+	<script src="app/components/saisons/saisons-controller.js"></script>
+	<script src="app/components/saisons/saisons-service.js"></script>
 	
 	
 </body>
