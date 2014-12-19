@@ -28,4 +28,23 @@
 		<start-class>gdes.amisdufoot.ApplicationConfig</start-class>
 	</properties>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.kelveden</groupId>
+				<artifactId>maven-karma-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<configFile>mykarma.conf.js</configFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

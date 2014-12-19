@@ -62,3 +62,7 @@ tmp/**/*
 
 # PDT-specific
 .buildpath
+
+# node_modules utilisés par karma
+node_modules/
+karma-test-results.xml
