@@ -4,10 +4,15 @@ amisdufoot.controller('SaisonsCtrl', function($scope,saisonsService) {
 	$scope.titrePage = "Gestion des Saisons";
 	
 	
-	$scope.saisonsList = saisonsService.listerSaisons();
+	saisonsService.listerSaisons().then(function(result) {
+		$scope.saisonsList = result.data;
+	},function(error) {
+		$scope.errorMessage= "Erreur technique lors du chargement des saisons existantes"
+	});
 	
 	$scope.mode="search";
 	$scope.typeModification = "";
+	$scope.errorMessage ="";
 
 	$scope.currentSaison={ nom : ""};
 	
@@ -21,8 +26,15 @@ amisdufoot.controller('SaisonsCtrl', function($scope,saisonsService) {
 	}
 
 	$scope.valideMaj = function () {
-		$scope.saisonsList.push($scope.currentSaison);
-		$scope.currentSaison={ nom : "" };
-		$scope.mode="search";
+		
+		saisonsService.ajouterSaison($scope.currentSaison).then(function() {
+			$scope.saisonsList.push($scope.currentSaison);
+			$scope.currentSaison={ nom : "" };
+			$scope.mode="search";
+		},function(error) {
+			$scope.errorMessage= "Erreur technique lors de l'ajout de la saison"
+		});
+		
+		
 	}
 });

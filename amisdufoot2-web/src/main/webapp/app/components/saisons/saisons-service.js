@@ -1,12 +1,17 @@
 'use strict';
 
-amisdufoot.factory('saisonsService',[function() {
+amisdufoot.factory('saisonsService',['$http', function($http) {
 	
 	var listerSaisons = function() {
-		return [{ nom : "2014-2015"} , {nom : "2013-2014"} , {nom : "2012-2013"}];		
+		return $http.get("/saisons");		
 	};
 	
+	var ajouterSaison = function(saison) {
+		return $http.post("/saisons",saison);
+	}
+	
 	return {
-		listerSaisons : listerSaisons
+		listerSaisons : listerSaisons,
+		ajouterSaison : ajouterSaison
 	}
 }]);

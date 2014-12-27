@@ -1,6 +1,6 @@
 describe("test du controller de saison", function() {
   
-	var $scope;
+	var $scope,$httpBackend,createController;
 	
 	var mockSaisonsService = {
 			listerSaisons : function() {
@@ -12,12 +12,19 @@ describe("test du controller de saison", function() {
 	beforeEach(angular.mock.module('amisdufoot'));
 	
 	// injection du controller à tester
-	beforeEach(inject(function($rootScope, $controller) {
+	beforeEach(inject(function($rootScope, $controller, _$httpBackend_) {
 		$scope = $rootScope.$new(); 
-		$controller('SaisonsCtrl',{$scope:$scope, saisonsService:mockSaisonsService});
+		$httpBackend = _$httpBackend_;
+		
+		$httpBackend.expectGET('/saisons').respond([{ nom : "2014-2015"} , {nom : "2013-2014"} ]);
+		$controller('SaisonsCtrl',{$scope:$scope});
+		$httpBackend.flush();
+		
 	}));
 	
+
 	it('test init du controller', function() {
+		
 		expect($scope.mode).toBe('search');
 		expect($scope.typeModification).toBe('');
 		expect($scope.currentSaison.nom).toBe('');
@@ -41,7 +48,11 @@ describe("test du controller de saison", function() {
 	it('test valideMaj', function() {
 		$scope.mode="create";
 		$scope.currentSaison = {nom : "newSaison"};
+
+		$httpBackend.expectPOST('/saisons',$scope.currentSaison).respond(201, '');
 		$scope.valideMaj();
+		$httpBackend.flush();
+		
 		expect($scope.saisonsList.length).toBe(3);
 		expect($scope.currentSaison.nom).toBe('');
 		expect($scope.mode).toBe('search');
