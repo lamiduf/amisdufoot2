@@ -68,7 +68,7 @@
 			</plugin>
 
 			<!-- tentative d'integrer le demarrage du serveur selenium dans maven -->
-			<!--  
+			<!-- 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>selenium-maven-plugin</artifactId>
@@ -82,6 +82,12 @@
 						</goals>
 						<configuration>
 							<background>true</background>
+							<systemProperties>
+								<property>
+									<name>webdriver.chrome.driver</name>
+									<value>C:\Utilisateurs\fr22765\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe</value>
+								</property>
+							</systemProperties>
 						</configuration>
 					</execution>
 
@@ -94,8 +100,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			-->
-			
+			 -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
