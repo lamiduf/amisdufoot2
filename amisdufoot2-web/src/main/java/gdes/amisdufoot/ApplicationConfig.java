@@ -50,11 +50,12 @@ public class ApplicationConfig {
 				ApplicationConfig.class, args);
 
 		// init de la base (à supprimer ensuite)
+		/*
 		SaisonRepository saisonRepository = context
 				.getBean(SaisonRepository.class);
 		saisonRepository.save(new Saison("2011-2012"));
 		saisonRepository.save(new Saison("2010-2011"));
-
+		*/
 	}
 
 }

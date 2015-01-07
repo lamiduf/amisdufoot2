@@ -1,0 +1,15 @@
+{
+  "name": "amisdufoot2-web",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-protractor-runner": "^1.1.4",
+    "grunt-protractor-webdriver": "^0.2.0",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.4",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "protractor": "^1.5.0"
+  }
+}
