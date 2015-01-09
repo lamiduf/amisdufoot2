@@ -39,6 +39,7 @@
 	<build>
 		<plugins>
 
+			<!-- lancement des tests unitaires karma dans la phase de test -->
 			<plugin>
 				<groupId>com.kelveden</groupId>
 				<artifactId>maven-karma-plugin</artifactId>
@@ -55,6 +56,7 @@
 				</configuration>
 			</plugin>
 
+			<!-- ajout des phases d'integration -->
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<executions>
@@ -67,15 +69,7 @@
 				</executions>
 			</plugin>
 
-			<!-- tentative d'integrer le demarrage du serveur selenium dans maven -->
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>selenium-maven-plugin</artifactId> 
-				<version>2.3</version> <executions> <execution> <id>start</id> <phase>pre-integration-test</phase> 
-				<goals> <goal>start-server</goal> </goals> <configuration> <background>true</background> 
-				<systemProperties> <property> <name>webdriver.chrome.driver</name> <value>C:\Utilisateurs\fr22765\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe</value> 
-				</property> </systemProperties> </configuration> </execution> <execution> 
-				<id>stop</id> <phase>post-integration-test</phase> <goals> <goal>stop-server</goal> 
-				</goals> </execution> </executions> </plugin> -->
-
+			<!-- demarrage du serveur avant tests d'intégration et arrêt ensuite -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -116,41 +110,50 @@
 			</plugin>
 
 
-			<!-- pour lancer protractor depuis maven (plus utilisé si on lance via 
+			<!-- lancement des tests e2e depuis maven (plus utilisé si on lance via 
 				grunt) -->
 			<!-- <plugin> <groupId>com.github.greengerong</groupId> <artifactId>maven-ng-protractor</artifactId> 
 				<version>0.0.2</version> <configuration> </configuration> <executions> <execution> 
 				<id>ng-protractor</id> <phase>integration-test</phase> <goals> <goal>run</goal> 
 				</goals> </execution> </executions> </plugin> -->
 
-			<!-- pour lancer tests e2e via grunt -->
-			<!-- <plugin> <groupId>com.github.eirslett</groupId> <artifactId>frontend-maven-plugin</artifactId> 
-				<version>0.0.20</version> <executions> <execution> <id>install node and npm</id> 
-				<goals> <goal>install-node-and-npm</goal> </goals> <configuration> <nodeVersion>v0.10.30</nodeVersion> 
-				<npmVersion>1.4.21</npmVersion> </configuration> </execution> <execution> 
-				<id>npm install</id> <goals> <goal>npm</goal> </goals> <configuration> <arguments>install</arguments> 
-				</configuration> </execution> </executions> </plugin> -->
+			<!-- installation de node et npm en local + installation des modules du package.json -->
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>0.0.20</version>
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>v0.10.30</nodeVersion>
+							<npmVersion>1.4.21</npmVersion>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
+			<!-- installation de driver nécessaires à selenium -->
+			<!-- lancer tests e2e via grunt -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>exec-npm-install</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<executable>npm</executable>
-							<arguments>
-								<argument>install</argument>
-							</arguments>
-						</configuration>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-					</execution>
-					<execution>
 						<id>exec-webdrivermanager-update</id>
-						<phase>generate-sources</phase>
+						<phase>generate-resources</phase>
 						<configuration>
 							<executable>node</executable>
 							<arguments>
@@ -175,9 +178,15 @@
 				</executions>
 			</plugin>
 		</plugins>
+		
+		
+		
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+					
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -185,19 +194,35 @@
 					<configuration>
 						<lifecycleMappingMetadata>
 							<pluginExecutions>
+							
+								<!-- ne pas faire les exec lors du update project dans eclipse  -->
 								<pluginExecution>
 									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											exec-maven-plugin
-										</artifactId>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>exec-maven-plugin</artifactId>
 										<versionRange>
 											[1.3.2,)
 										</versionRange>
 										<goals>
 											<goal>exec</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+
+								<!-- ne pas faire les installs node et npm lors du update project dans eclipse  -->
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.github.eirslett</groupId>
+										<artifactId>frontend-maven-plugin</artifactId>
+										<versionRange>
+											[0.0.20,)
+										</versionRange>
+										<goals>
+											<goal>install-node-and-npm</goal>
+											<goal>npm</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
