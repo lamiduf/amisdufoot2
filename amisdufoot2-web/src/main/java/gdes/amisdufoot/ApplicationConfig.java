@@ -8,20 +8,21 @@ import java.util.Set;
 
 import javax.validation.Validator;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class ApplicationConfig {
+public class ApplicationConfig extends WebMvcConfigurerAdapter {
 
- 	@Bean
+  	@Bean
 	public ConversionService conversionService() {
 		ConversionServiceFactoryBean bean = new ConversionServiceFactoryBean();
 		bean.setConverters(getConverters());
@@ -38,6 +39,12 @@ public class ApplicationConfig {
 		return converters;
 	}
 	
+	
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LogHttpRequestInterceptor());
+    }
+
 	@Bean
 	public Validator validator() {
 		return new LocalValidatorFactoryBean(); 
@@ -45,16 +52,10 @@ public class ApplicationConfig {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext context = SpringApplication.run(
+		SpringApplication.run(
 				ApplicationConfig.class, args);
 
-		// init de la base (à supprimer ensuite)
-		/*
-		SaisonRepository saisonRepository = context
-				.getBean(SaisonRepository.class);
-		saisonRepository.save(new Saison("2011-2012"));
-		saisonRepository.save(new Saison("2010-2011"));
-		*/
 	}
+
 
 }

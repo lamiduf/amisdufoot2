@@ -10,6 +10,8 @@
   <logger name="org.springframework" level="warn"/>
   
   <logger name="gdes.amisdufoot" level="DEBUG"/>
+  
+  <logger name="gdes.amisdufoot.LogHttpRequestInterceptor" level="trace"/>
  
   <root level="warn">
     <appender-ref ref="STDOUT" />
