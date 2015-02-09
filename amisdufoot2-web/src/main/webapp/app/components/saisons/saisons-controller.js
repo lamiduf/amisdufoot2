@@ -32,7 +32,12 @@ amisdufoot.controller('SaisonsCtrl', function($scope,saisonsService) {
 			$scope.currentSaison={ nom : "" };
 			$scope.mode="search";
 		},function(error) {
-			$scope.errorMessage= "Erreur technique lors de l'ajout de la saison"
+			if (error.status == 400) {
+				$scope.errorMessage = error.data.message;
+			}
+			else {
+				$scope.errorMessage= "Erreur technique lors de l'ajout de la saison"
+			}		
 		});
 		
 		

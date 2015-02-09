@@ -2,8 +2,6 @@ package gdes.amisdufoot;
 
 import gdes.amisdufoot.converter.AdfSaisonToSaisonConverter;
 import gdes.amisdufoot.converter.SaisonToAdfSaisonConverter;
-import gdes.amisdufoot.domain.Saison;
-import gdes.amisdufoot.domain.SaisonRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +10,7 @@ import javax.validation.Validator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ConversionServiceFactoryBean;
@@ -22,7 +21,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @SpringBootApplication
 public class ApplicationConfig {
 
-	@Bean
+ 	@Bean
 	public ConversionService conversionService() {
 		ConversionServiceFactoryBean bean = new ConversionServiceFactoryBean();
 		bean.setConverters(getConverters());

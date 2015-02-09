@@ -41,6 +41,9 @@ describe('gestion des saisons', function() {
 	    expect(listeSaisons.count()).toEqual(0);
 	    inputRecherche.clear();
 	    expect(listeSaisons.count()).toEqual(2);
+	    
+	    // test ajout d'une saison existante
+	    
 
   });
 	

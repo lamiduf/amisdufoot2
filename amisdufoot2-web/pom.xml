@@ -22,6 +22,10 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
@@ -117,7 +121,8 @@
 				<id>ng-protractor</id> <phase>integration-test</phase> <goals> <goal>run</goal> 
 				</goals> </execution> </executions> </plugin> -->
 
-			<!-- installation de node et npm en local + installation des modules du package.json -->
+			<!-- installation de node et npm en local + installation des modules du 
+				package.json -->
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
@@ -178,15 +183,15 @@
 				</executions>
 			</plugin>
 		</plugins>
-		
-		
-		
+
+
+
 		<pluginManagement>
 			<plugins>
-				
+
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
-					
+
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -194,8 +199,8 @@
 					<configuration>
 						<lifecycleMappingMetadata>
 							<pluginExecutions>
-							
-								<!-- ne pas faire les exec lors du update project dans eclipse  -->
+
+								<!-- ne pas faire les exec lors du update project dans eclipse -->
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>org.codehaus.mojo</groupId>
@@ -212,7 +217,8 @@
 									</action>
 								</pluginExecution>
 
-								<!-- ne pas faire les installs node et npm lors du update project dans eclipse  -->
+								<!-- ne pas faire les installs node et npm lors du update project 
+									dans eclipse -->
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>com.github.eirslett</groupId>
