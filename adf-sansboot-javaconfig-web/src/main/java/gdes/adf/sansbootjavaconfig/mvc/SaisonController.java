@@ -7,6 +7,7 @@ import gdes.adf.sansbootjavaconfig.exception.SaisonAlreadyExistException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -14,6 +15,7 @@ import javax.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -31,6 +33,9 @@ public class SaisonController {
 
 	public static final Logger LOG = LoggerFactory
 			.getLogger(SaisonController.class);
+	
+	@Autowired
+	protected MessageSource messageSource;
 
 	@Autowired
 	protected SaisonRepository saisonRepository;
@@ -79,7 +84,7 @@ public class SaisonController {
 		// vérifier que l'on a pas déjà une saison avec le même nom
 		Saison existingSaison = saisonRepository.findByNom(adfSaison.getNom());
 		if (existingSaison != null) {
-			String msg = "La saison["+ adfSaison.getNom() + "] existe déjà";
+			String msg = messageSource.getMessage("msg.saisonAlreadyExist", new Object[] {adfSaison.getNom()},Locale.FRANCE);
 			LOG.error(msg);
 			throw new SaisonAlreadyExistException(msg);
 		}
