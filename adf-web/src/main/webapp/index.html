@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amis du foot Manager</title>
+
+
+	
+
+<!-- Bootstrap -->
+<link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!-- Custom styles for this template -->
+<link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
+
+<link href="assets/css/amisdufoot.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="amisdufoot">
+
+        <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/actualites">Amis du Foot</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/actualites">Actualit&eacute;s</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Matches <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#/matches/recherche">Recherche</a></li>
+                <li><a href="#/matches/derniers">Les Derniers matches</a></li>
+                <li><a href="#/matches/creer">créer un match</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Joueurs <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#/joueurs/liste">Liste des joueurs</a></li>
+                <li><a href="#/jouers/creer">Créer un joueur</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#/saisons">Saisons</a></li>
+                <li><a href="#/competitions">Competitions</a></li>
+                <li><a href="#/equipes">Equipes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+	<div ng-view></div>
+
+
+	<script src="assets/bower_components/angular/angular.js"></script>
+	<script src="assets/bower_components/angular-route/angular-route.js"></script>
+	<script src="assets/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="assets/bower_components/jquery/dist/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+	<script src="app/app.js"></script>
+	<script src="app/components/competitions/competitions-controller.js"></script>
+	<script src="app/components/actualites/actualites-controller.js"></script>
+	<script src="app/components/matches/matches-controller.js"></script>
+	<script src="app/components/saisons/saisons-controller.js"></script>
+	<script src="app/components/saisons/saisons-service.js"></script>
+	
+	
+</body>
+</html>

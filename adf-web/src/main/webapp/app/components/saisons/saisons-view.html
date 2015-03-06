@@ -1,0 +1,100 @@
+<div class="container">
+
+	<!-- message erreur -->
+	<div class="row">
+		<p class="text-center text-danger">
+		{{errorMessage}}
+	</div>
+
+	<div class="row">
+
+		<!-- formulaire de recherche -->
+		<div class="col-md-3">
+
+			<div class="panel panel-info">
+
+				<div class="panel-heading">
+					<h4>Recherche</h4>
+				</div>
+
+				<div class="panel-body bloc">
+					<form role="form" id="saisonsFormRecherche">
+						<div class="form-group">
+							<label for="saisonsFormRechercheInputSaison">Saison</label>
+							<input type="text" class="form-control"
+								id="saisonsFormRechercheInputSaison" placeholder="Saison"
+								ng-model="searchSaison">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!-- tableau de resultats -->
+		<div class="col-md-9">
+
+			<div class="panel panel-info">
+
+				<div class="panel-heading">
+					<button type="button" class="btn btn-primary pull-right" ng-click="afficheFormCreationSaison()" id="buttonAjouterUneSaison">
+						<span class="glyphicon glyphicon-plus"></span>&nbsp;Ajouter une Saison
+					</button>
+					<h4>R&eacute;sultat de la recherche</h4>
+				</div>
+
+				<div class="panel-body bloc">
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Saison</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								ng-repeat="saison in saisonsList | filter:searchSaison">
+								<td>{{saison.nom}}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- formulaire de creation --> 
+	<div class="row" collapse="!isModeMaj()" id="saisonsDivMaj">
+
+		<div class="col-md-9 col-md-offset-3">
+
+			<div class="panel panel-info">
+
+				<div class="panel-heading">
+					<h4>{{typeModification}}</h4>
+				</div>
+
+				<div class="panel-body bloc>">
+					<form role="form" class="form-inline" id="saisonsFormMaj">
+
+							<div class="form-group col-md-5">
+								<label for="saisonsFormMajInputSaison">Saison</label> <input
+									type="text" class="form-control"
+									id="saisonsFormMajInputSaison" placeholder="Saison"
+									ng-model="currentSaison.nom">
+							</div>
+							<div class="form-group col-md-2">
+								<button type="button" class="btn btn-primary pull-right" ng-click="valideMaj()" id="saisonsFormButtonValider">
+									<span class="glyphicon glyphicon-plus"></span>&nbsp;Valider
+								</button>
+							</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	
+
+</div>
