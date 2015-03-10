@@ -28,7 +28,7 @@ import org.springframework.validation.BindingResult;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class SaisonsControllerTestCase {
+public class SaisonsControllerTest {
 
 	@Mock
 	protected MessageSource mockMessageSource;

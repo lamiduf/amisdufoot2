@@ -50,4 +50,25 @@
 	</dependencies>
 
 
+	<build>
+		<plugins>
+
+			<!-- lancement des tests unitaires karma dans la phase de test -->
+			<plugin>
+				<groupId>com.kelveden</groupId>
+				<artifactId>maven-karma-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<configFile>mykarma.conf.js</configFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>	
 </project>

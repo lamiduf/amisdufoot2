@@ -67,3 +67,4 @@ tmp/**/*
 node_modules/
 node/
 karma-test-results.xml
+karma-junit-results.xml

@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @WebAppConfiguration
 @SpringApplicationConfiguration(classes = Application.class)
 @Sql({"/initSaisons.sql"})
-public class SaisonsIntegrationTestCase {
+public class SaisonsIntegrationTest {
 
 	@Autowired
 	private WebApplicationContext wac;
