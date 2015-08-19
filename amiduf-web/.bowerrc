@@ -1,0 +1,6 @@
+{
+  "directory": "src/main/resources/static/assets/bower_components",
+  "json": "bower.json",
+  "proxy" : "http://proxy.priv.atos.fr:3128",
+  "https-proxy" : "http://proxy.priv.atos.fr:3128"
+}
