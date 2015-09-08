@@ -23,6 +23,12 @@ public class AdfSaison {
 		return libelle;
 	}
 
+
+	@Override
+	public String toString() {
+		return "AdfSaison [libelle=" + libelle + "]";
+	}
+
 	
 	
 }
